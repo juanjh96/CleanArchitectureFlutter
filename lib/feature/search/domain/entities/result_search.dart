@@ -1,11 +1,11 @@
 class ResultSearch {
-  final String title;
-  final String content;
-  final String img;
-
   ResultSearch({
-    this.title,
-    this.content,
-    this.img,
+    this.email,
+    this.firstName,
+    this.lastName,
   });
+
+  final String email;
+  final String firstName;
+  final String lastName;
 }

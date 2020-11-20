@@ -8,6 +8,7 @@ import 'package:mockito/mockito.dart';
 
 class SearchRepositoryMock extends Mock implements SearchRepository {}
 
+// ignore: always_declare_return_types
 main() {
   final repository = SearchRepositoryMock();
   final usecase = SearchByTextImpl(repository);
@@ -17,7 +18,7 @@ main() {
     () async {
       when(repository.search(any))
           .thenAnswer((_) async => Right(<ResultSearch>[]));
-      final result = await usecase("Juan");
+      final result = await usecase('2');
       expect(
         result | null,
         isA<List<ResultSearch>>(),
@@ -26,7 +27,7 @@ main() {
   );
 
   test(
-    'Debe retornar un error, si el texto es invalido',
+    'Debe retornar un InvalidTextError, si el texto es invalido',
     () async {
       when(repository.search(any))
           .thenAnswer((_) async => Right(<ResultSearch>[]));

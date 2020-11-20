@@ -5,9 +5,9 @@ import 'package:dartz/dartz.dart';
 import 'package:ejemplo_clean_architecture_tdd/feature/search/domain/repositories/Search_repository.dart';
 
 class SearchRepositoryimpl implements SearchRepository {
-  final SearchDatasource datasource;
-
   SearchRepositoryimpl(this.datasource);
+
+  final SearchDatasource datasource;
 
   @override
   Future<Either<SearchError, List<ResultSearch>>> search(

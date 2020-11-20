@@ -10,6 +10,7 @@ import 'package:mockito/mockito.dart';
 
 class SearchRepositoryMock extends Mock implements SearchDatasource {}
 
+// ignore: always_declare_return_types
 main() {
   final datasource = SearchRepositoryMock();
   final repository = SearchRepositoryimpl(datasource);
@@ -19,7 +20,7 @@ main() {
     () async {
       when(datasource.getSearch(any))
           .thenAnswer((_) async => <ResultSearchModel>[]);
-      final result = await repository.search('Juan');
+      final result = await repository.search('2');
       expect(result | null, isA<List<ResultSearch>>());
     },
   );
@@ -29,7 +30,7 @@ main() {
     () async {
       when(datasource.getSearch(any)).thenThrow(DataSourceError());
 
-      final result = await repository.search('Juan');
+      final result = await repository.search('2');
 
       expect(result.fold(id, id), isA<DataSourceError>());
     },

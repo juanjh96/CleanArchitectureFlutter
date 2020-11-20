@@ -3,14 +3,14 @@ import 'package:ejemplo_clean_architecture_tdd/feature/search/domain/entities/re
 import 'package:ejemplo_clean_architecture_tdd/feature/search/domain/errors/errors.dart';
 import 'package:ejemplo_clean_architecture_tdd/feature/search/domain/repositories/Search_repository.dart';
 
+// ignore: one_member_abstracts
 abstract class SearchByText {
   Future<Either<SearchError, List<ResultSearch>>> call(String searchText);
 }
 
 class SearchByTextImpl implements SearchByText {
-  final SearchRepository searchRepository;
-
   SearchByTextImpl(this.searchRepository);
+  final SearchRepository searchRepository;
 
   @override
   Future<Either<SearchError, List<ResultSearch>>> call(
